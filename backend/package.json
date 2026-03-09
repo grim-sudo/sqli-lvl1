@@ -1,0 +1,17 @@
+{
+  "name": "meridianhr-backend",
+  "version": "1.0.0",
+  "description": "MeridianHR Self-Service Portal – API server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^9.4.3",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.3",
+    "express-session": "^1.18.0"
+  },
+  "engines": { "node": ">=18.0.0" }
+}

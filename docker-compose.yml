@@ -1,0 +1,25 @@
+services:
+  meridianhr:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sqli-lab1-meridianhr:latest
+    container_name: meridianhr
+    ports:
+      - "8081:80"
+    environment:
+      - FLAG=${FLAG:-MCG{placeholder_flag_not_set}
+      - PORT=80
+      - NODE_ENV=production
+    volumes:
+      - meridianhr-data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+volumes:
+  meridianhr-data:
